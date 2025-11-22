@@ -6,6 +6,9 @@ from typing import Any, Dict, Optional, Protocol, TYPE_CHECKING
 from .efp import EFPState
 from .roles import ROLE_PROFILES, RoleProfile
 from .physics import PhysicsState
+from .quantum import QuantumDNA
+from .thermodynamics import ThermalState, StateOfMatter
+from .math_utils import Vector3
 
 if TYPE_CHECKING:
     from .tensor_coil import CoilStructure
@@ -23,6 +26,8 @@ class Entity:
     id: str
     state: EFPState = field(default_factory=EFPState)
     physics: PhysicsState = field(default_factory=PhysicsState)
+    dna: Optional[QuantumDNA] = None
+    thermal: ThermalState = field(default_factory=ThermalState)
     data: Dict[str, Any] = field(default_factory=dict)
     role: Optional[str] = None
     f_body: float = 0.0
@@ -56,42 +61,19 @@ class Entity:
             return None
         return ROLE_PROFILES.get(self.role)
 
-    def apply_physics(self, coil: Optional[CoilStructure], world_physics: Optional[PhysicsWorld], dt: float = 1.0) -> None:
-        """
-        Applies the Digital Physics laws:
-        1. Coil Acceleration (Railgun)
-        2. Gravity (Attractors)
-        3. Hyperdrive (Superconductivity)
-        """
-        # 1. Railgun / Coil field
-        if coil:
-            coil.railgun_accelerate(self.physics, dt)
-
-        # 2. Gravity
-        if world_physics:
-            gravity = world_physics.get_net_force(self.physics.position)
-            self.physics.apply_force(gravity, dt)
-
-        # 3. Hyperdrive check
-        # If we successfully hyperdrive to an attractor, we might stop other processing?
-        if coil and world_physics:
-            # Try to jump to any attractor
-            for attractor in world_physics.attractors:
-                did_jump = coil.superconduct(self.physics, attractor)
-                if did_jump:
-                    # Jump happened. Energy surge?
-                    self.state.energy += 100.0
-                    break
-
-        # Step physics
-        self.physics.step(dt)
-
     def step(self, world: WorldLike, dt: float = 1.0) -> None:
+        """
+        Internal step update.
+        Physics and Thermodynamics are now handled by external Systems.
+        """
         self.update_force(world)
         self.state.step(dt=dt)
+        if self.dna:
+            self.dna.step(dt)
 
     def to_payload(self) -> Dict[str, Any]:
-        return {
+        celestial_type = self.thermal.get_celestial_type(self.physics.mass)
+        payload = {
             "id": self.id,
             "role": self.role,
             "efp": self.state.as_dict(),
@@ -102,4 +84,12 @@ class Entity:
                 "spirit": self.f_spirit,
             },
             "data": self.data,
+            "thermal": {
+                "temp": self.thermal.temperature,
+                "state": self.thermal.state.name,
+                "type": celestial_type
+            }
         }
+        if self.dna:
+            payload["dna"] = self.dna.as_dict()
+        return payload

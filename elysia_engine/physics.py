@@ -71,6 +71,9 @@ class PhysicsWorld:
     def add_attractor(self, attractor: Attractor) -> None:
         self.attractors.append(attractor)
 
+    def clear_attractors(self) -> None:
+        self.attractors = []
+
     def get_net_force(self, position: Vector3) -> Vector3:
         """Sum of all gravitational forces at a given position."""
         total_force = Vector3(0, 0, 0)
