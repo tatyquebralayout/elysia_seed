@@ -19,14 +19,16 @@ Everything in the engine is defined by the **SoulTensor** (defined in `elysia_en
 *   **Frequency (Soul/Identity):** Color, rifling/spin, emotional resonance.
 *   **Phase (Spirit/Timing):** Alignment, resonance, luck.
 
-### 3. Coding Conventions
+### 3. Coding Conventions (Updated Protocol)
 
 *   **Pure Python Mathematics:** All core math (Vector3, Quaternion) MUST be implemented in `elysia_engine/math_utils.py`. **Do not introduce heavy dependencies like NumPy or SciPy.** The engine is designed to be lightweight and portable.
-*   **System Pattern:** Logic is decoupled from data. Use the System pattern (`elysia_engine/systems.py`) for all major mechanics:
+*   **System Pattern:** Logic is decoupled from data. Use the System pattern (`elysia_engine/systems/`) for all major mechanics:
     *   `PhysicsSystem`: Movement, collision.
     *   `ThermodynamicsSystem`: State changes (Plasma -> Crystal).
     *   `GenesisSystem`: Replication via Tensor Coils.
     *   `VoidSystem`: Entropy and cleanup.
+    *   `SpacetimeOrchestrator`: Adjusts gravity/time scale based on entropy signals (pairs with `GlobalConsciousness`).
+*   **Holographic Boundary Sampling:** Favor boundary-only potential sampling (`HolographicBoundary` in `physics.py`) to approximate interior fields. Sample surfaces; interpolate inside. Do not brute-force fill 3D volumes.
 
 ### 4. Directives
 
