@@ -5,7 +5,7 @@ from typing import List, Optional, TYPE_CHECKING
 import math
 import random
 
-from .math_utils import Vector3
+from .math_utils import Vector3, Quaternion
 from .tensor import SoulTensor
 
 if TYPE_CHECKING:
@@ -71,9 +71,19 @@ class PhysicsWorld:
         self.entities: List[Entity] = [] # Track all entities to calculate their mutual fields
         self.gravity_constant: float = 1.0
         self.coupling_constant: float = 0.5 # Strength of the Soul Force (Rifling)
+        self.spacetime_torsion: Quaternion = Quaternion.identity() # Global Space-Time Rotation
 
     def add_attractor(self, attractor: Attractor) -> None:
         self.attractors.append(attractor)
+
+    def get_time_dilation(self) -> float:
+        """
+        Returns the time scaling factor derived from the Spacetime Quaternion.
+        w = cos(theta/2).
+        theta=0 -> w=1 (Normal Time).
+        theta=pi -> w=0 (Time Stop).
+        """
+        return abs(self.spacetime_torsion.w)
 
     def register_entity(self, entity: Entity) -> None:
         if entity not in self.entities:
@@ -263,7 +273,14 @@ class PhysicsWorld:
                     # For now just modify flow to be zero (teleported past the force)
                     return Vector3(0,0,0)
 
-        return flow + spin_force
+        total_flow = flow + spin_force
+
+        # Apply Spacetime Torsion (Rotation of the Metric)
+        # The flow vector is defined in "Absolute Space", but the Entity perceives "Curved Space".
+        # By rotating the flow, we simulate the curvature redirecting the path.
+        rotated_flow = self.spacetime_torsion.rotate(total_flow)
+
+        return rotated_flow
 
     def check_dimensional_binding(self, entity: Entity) -> None:
         """

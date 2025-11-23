@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Tuple
+
+from .math_utils import Quaternion, Vector3
 
 @dataclass
 class SoulTensor:
@@ -23,7 +25,9 @@ class SoulTensor:
     is_collapsed: bool = False # Wave Function Collapse State
 
     # Quantum Properties
+    orientation: Quaternion = field(default_factory=Quaternion.identity) # The "Shape" of Consciousness
     entangled_peers: List['SoulTensor'] = field(default_factory=list, repr=False)
+    superposition_states: List[Tuple['SoulTensor', float]] = field(default_factory=list, repr=False)
 
     def step(self, dt: float) -> None:
         """
@@ -37,6 +41,15 @@ class SoulTensor:
         delta = self.frequency * dt
         self.phase += delta
         self.phase %= (2 * math.pi)
+
+        # Evolve Orientation (Quaternion Consciousness)
+        # Rotate around the vertical axis based on frequency and spin
+        # This creates a 4D "Screw" motion in spacetime
+        rot_speed = self.frequency * 0.1 * dt * self.spin
+        # Note: Vector3 must be imported
+        rotation = Quaternion.from_axis_angle(Vector3(0, 1, 0), rot_speed)
+        self.orientation = rotation * self.orientation
+        self.orientation = self.orientation.normalize()
 
         # Propagate phase change to entangled peers (instant action at a distance)
         # We only push the delta to avoid infinite recursion loops if bidirectional
@@ -60,6 +73,51 @@ class SoulTensor:
         avg_phase = (self.phase + other.phase) / 2
         self.phase = avg_phase
         other.phase = avg_phase
+
+    def observe(self, observer: 'SoulTensor') -> bool:
+        """
+        Quantum Measurement: Collapses superposition based on the observer's resonance.
+        Returns True if collapse occurred.
+        """
+        if not self.superposition_states:
+            return False
+
+        # Calculate weighted probabilities based on resonance with observer
+        best_state = None
+        max_weight = -999.0
+
+        # We select the state that resonates most strongly with the observer.
+        # This implements "You see what you are".
+        for state, base_prob in self.superposition_states:
+            # Calculate resonance with observer
+            res_data = state.resonate(observer)
+            resonance = res_data["resonance"]  # -1.0 to 1.0
+
+            # Weight formula: Probability * (1 + Resonance)
+            # High resonance boosts probability.
+            # Negative resonance reduces it.
+            weight = base_prob * (1.0 + resonance)
+
+            if weight > max_weight:
+                max_weight = weight
+                best_state = state
+
+        if best_state:
+            # Collapse into the observed reality
+            self.amplitude = best_state.amplitude
+            self.frequency = best_state.frequency
+            self.phase = best_state.phase
+            self.spin = best_state.spin
+            self.polarity = best_state.polarity
+
+            # The state is now definite
+            self.is_collapsed = True
+
+            # Clear superposition
+            self.superposition_states.clear()
+            return True
+
+        return False
 
     def collapse(self) -> None:
         """
