@@ -22,6 +22,10 @@ from .wave import WaveInput
 from .thought import Thought
 
 
+# Hebbian learning constants
+HEBBIAN_LINK_PROBABILITY = 0.10  # 10% chance to create new links between co-active qubits
+
+
 class ResonanceEngine:
     """
     The Resonance Engine based on HyperQubit consciousness.
@@ -373,7 +377,7 @@ class ResonanceEngine:
                     target_id in self.psionic_links[source_id]
                 )
                 
-                if not already_linked and random.random() < 0.1:
+                if not already_linked and random.random() < HEBBIAN_LINK_PROBABILITY:
                     self.entangle(source_id, target_id)
 
     def process_input(self, text: str, intensity: float = 1.0) -> Thought:

@@ -17,6 +17,11 @@ from typing import Dict, Optional, Set
 from .hyper_qubit import HyperQubit, QubitState
 
 
+# Vitality range constants for perception
+VITALITY_MIN = 0.35
+VITALITY_RANGE = 0.30  # Max vitality = VITALITY_MIN + VITALITY_RANGE
+
+
 @dataclass
 class PerceptionResult:
     """
@@ -111,7 +116,7 @@ class Perception:
             PerceptionResult with quantum state and analysis
         """
         # 1. Vitality Injection (simulated chaos)
-        vitality = random.random() * 0.3 + 0.35  # 0.35-0.65 range
+        vitality = random.random() * VITALITY_RANGE + VITALITY_MIN
         
         # 2. Intent Measurement
         intent_probs = self._measure_intent(text)

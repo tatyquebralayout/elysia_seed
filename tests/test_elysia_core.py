@@ -377,7 +377,12 @@ class TestIntegration:
         
         # User input 2
         thought2 = soul.process("I love learning about consciousness")
-        assert "love" in [c[0].lower() for c in thought2.core_concepts[:3]] or thought2.mood in ["positive", "contemplative", "neutral"]
+        
+        # Check if love is in core concepts or if mood is appropriate
+        core_concept_names = [c[0].lower() for c in thought2.core_concepts[:3]]
+        has_love_concept = "love" in core_concept_names
+        has_valid_mood = thought2.mood in ["positive", "contemplative", "neutral"]
+        assert has_love_concept or has_valid_mood, f"Expected love concept or valid mood, got concepts={core_concept_names}, mood={thought2.mood}"
         
         # Check state evolved
         assert soul.experience_count == 2

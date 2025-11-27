@@ -24,6 +24,10 @@ except ImportError:
     HAS_NETWORKX = False
 
 
+# Memory constants
+IDENTITY_SUMMARY_MAX_LENGTH = 30  # Maximum characters for identity fragment summaries
+
+
 @dataclass
 class MemoryNode:
     """
@@ -384,7 +388,8 @@ class Hippocampus:
             return
             
         # Simple extraction
-        summary = f"Recent focus: {experiences[-1].get('content', '')[:30]}..."
+        content = experiences[-1].get('content', '')[:IDENTITY_SUMMARY_MAX_LENGTH]
+        summary = f"Recent focus: {content}..."
         
         fragment = {
             "timestamp": datetime.now().isoformat(),

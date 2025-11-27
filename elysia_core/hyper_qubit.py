@@ -11,6 +11,7 @@ for pure Python (no NumPy dependency).
 from __future__ import annotations
 
 import math
+import random
 import uuid
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional, Set
@@ -348,8 +349,6 @@ class HyperQubit:
         Returns:
             Name of the collapsed basis
         """
-        import random
-        
         probs = self.state.probabilities()
         bases = ["Point", "Line", "Space", "God"]
         weights = [probs["Point"], probs["Line"], probs["Space"], probs["God"]]
