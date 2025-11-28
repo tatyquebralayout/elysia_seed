@@ -146,7 +146,12 @@ Godot/웹훅과 연동 스켈레톤은 `examples/03_godot_bridge_stub.py`와 `el
 
 ## Documentation Map
 
+### 🌟 시작하기 (Getting Started)
+- `docs/core_technologies_quickstart.md`: **핵심 기술 빠른 시작** - 복사해서 바로 쓰는 통합 가이드
 - `docs/tutorial_5min.md`: 5분 개발자 튜토리얼
+- `docs/local_llm_integration.md`: 로컬 LLM 통합 가이드 (대용량 파일 관리 포함)
+
+### 📚 상세 문서
 - `docs/aura_visualization.md`: 오라/컬러 시스템
 - `docs/trinity_decision.md`: 삼위일체 행동 결정 공식
 - `docs/episodes_weights.md`: 에피소드 → 성향 업데이트 규칙
