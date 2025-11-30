@@ -27,7 +27,7 @@ import json
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Dict, Optional, Union
 
 
 # Environment variable prefix
@@ -172,7 +172,7 @@ class ElysiaConfig:
         return config
     
     @classmethod
-    def from_file(cls, path: str | Path) -> ElysiaConfig:
+    def from_file(cls, path: Union[str, Path]) -> ElysiaConfig:
         """
         Load configuration from a file.
         
@@ -195,7 +195,7 @@ class ElysiaConfig:
         return cls.from_dict(data)
     
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> ElysiaConfig:
+    def from_dict(cls, data: Dict[str, Any]) -> ElysiaConfig:
         """
         Create configuration from a dictionary.
         
@@ -259,7 +259,7 @@ class ElysiaConfig:
         
         return config
     
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """
         Convert configuration to a dictionary.
         
@@ -293,7 +293,7 @@ class ElysiaConfig:
             "seed": self.seed,
         }
     
-    def save(self, path: str | Path) -> None:
+    def save(self, path: Union[str, Path]) -> None:
         """
         Save configuration to a file.
         

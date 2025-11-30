@@ -20,7 +20,7 @@ Usage:
 
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
 
 class ElysiaError(Exception):
@@ -34,7 +34,7 @@ class ElysiaError(Exception):
         self,
         message: str,
         *,
-        details: Optional[dict[str, Any]] = None,
+        details: Optional[Dict[str, Any]] = None,
     ) -> None:
         """
         Initialize the exception.
@@ -105,7 +105,7 @@ class InvalidMassError(PhysicsError):
     
     def __init__(self, mass: float, context: Optional[str] = None) -> None:
         msg = f"Invalid mass value: {mass}"
-        details: dict[str, Any] = {"mass": mass}
+        details: Dict[str, Any] = {"mass": mass}
         if context:
             msg = f"{msg} in {context}"
             details["context"] = context

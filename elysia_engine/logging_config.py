@@ -18,7 +18,7 @@ from __future__ import annotations
 import logging
 import os
 import sys
-from typing import Optional
+from typing import Dict, Optional
 
 
 # Default logging format
@@ -62,7 +62,7 @@ def get_log_format() -> str:
 
 
 # Module-level logger cache to avoid creating duplicate loggers
-_loggers: dict[str, logging.Logger] = {}
+_loggers: Dict[str, logging.Logger] = {}
 
 
 def get_logger(name: str, level: Optional[int] = None) -> logging.Logger:
