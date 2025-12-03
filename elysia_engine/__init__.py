@@ -17,6 +17,19 @@ from .logging_config import get_logger, configure_root_logger
 from .yggdrasil import Yggdrasil, Realm, YggdrasilNode, get_yggdrasil
 from .ether import Ether, Wave, WavePhase, Frequency, get_ether, emit_wave
 
+# Structure Evaluation and Analysis
+from .evaluation import (
+    evaluate_structure,
+    generate_report,
+    StructureExtractor,
+    QualityEvaluator,
+    StructureVisualizer,
+    EvaluationResult,
+    ModuleInfo,
+    ModuleCategory,
+    QualityLevel,
+)
+
 __all__ = [
     # Core classes
     "Entity",
@@ -49,4 +62,14 @@ __all__ = [
     "Frequency",
     "get_ether",
     "emit_wave",
+    # Structure Evaluation
+    "evaluate_structure",
+    "generate_report",
+    "StructureExtractor",
+    "QualityEvaluator",
+    "StructureVisualizer",
+    "EvaluationResult",
+    "ModuleInfo",
+    "ModuleCategory",
+    "QualityLevel",
 ]

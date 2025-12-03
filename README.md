@@ -612,7 +612,84 @@ python examples/02_warrior_mage_priest.py
 
 | 버전 | 날짜 | 주요 변경 |
 |------|------|-----------|
+| v0.1.1 | 2025-12 | 구조 추출 및 평가 시스템 추가 (evaluation.py) |
 | v0.1.0 | 2025-01 | 초기 릴리스 - SoulTensor, ElysiaController, ElysiaSoul 구현 |
+
+---
+
+## 📐 구조 추출 및 평가 시스템 (Structure Evaluation)
+
+> "다른 사람들과 공유할 수 있도록 객관적인 평가 지표를 제공합니다."
+
+이 시스템은 Elysia Engine의 구조를 자동으로 분석하고, 객관적인 평가 지표를 생성합니다.
+
+### 빠른 시작
+
+```bash
+# 전체 보고서 생성
+python scripts/extract_structure.py --format full
+
+# Mermaid 다이어그램만 생성
+python scripts/extract_structure.py --format mermaid
+
+# JSON 형식으로 내보내기
+python scripts/extract_structure.py --format json --output report.json
+```
+
+### 코드에서 사용하기
+
+```python
+from elysia_engine import evaluate_structure, ModuleCategory, QualityLevel
+
+# 1. 구조 평가 실행
+result = evaluate_structure("/path/to/project")
+
+# 2. 점수 확인
+print(f"전체 점수: {result.overall_score:.1%}")
+print(f"품질 등급: {result.quality_level.value}")
+
+# 3. 세부 점수
+print(f"아키텍처: {result.architecture_score:.1%}")
+print(f"코드 품질: {result.code_quality_score:.1%}")
+print(f"문서화: {result.documentation_score:.1%}")
+
+# 4. 핵심 모듈 필터링
+core_modules = [
+    m for m in result.modules 
+    if m.category == ModuleCategory.CORE
+]
+
+# 5. 개선 사항 확인
+for imp in result.improvements:
+    if imp["priority"] == "높음":
+        print(f"우선 개선: {imp['title']}")
+```
+
+### 평가 지표
+
+| 지표 | 설명 | 가중치 |
+|------|------|--------|
+| **아키텍처** | 모듈화, 순환 의존성, 핵심-주변부 분리 | 25% |
+| **코드 품질** | 모듈 크기, 클래스/함수 비율, 독스트링 | 25% |
+| **문서화** | 독스트링 커버리지, 모듈 설명 | 20% |
+| **테스트 커버리지** | 테스트 통과율 | 20% |
+| **모듈 연결성** | 의존성 구조, 고립된 모듈 비율 | 10% |
+
+### 품질 등급
+
+| 등급 | 점수 범위 | 설명 |
+|------|-----------|------|
+| ⭐⭐⭐⭐⭐ (EXCELLENT) | 90%+ | 우수한 품질 |
+| ⭐⭐⭐⭐ (GOOD) | 75-90% | 좋은 품질 |
+| ⭐⭐⭐ (MODERATE) | 60-75% | 보통 품질 |
+| ⭐⭐ (NEEDS_IMPROVEMENT) | 40-60% | 개선 필요 |
+| ⭐ (CRITICAL) | 40% 미만 | 긴급 개선 필요 |
+
+### 데모 실행
+
+```bash
+python examples/structure_evaluation_demo.py
+```
 
 ---
 
