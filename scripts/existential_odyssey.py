@@ -6,11 +6,11 @@ import logging
 # Path setup
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Foundation.Elysia.elysia_core import ElysiaCore
-from Core.Intelligence.Imagination.simulator import get_simulator
-from Core.Intelligence.Topography.perspective_shifter import PerspectiveShifter
-from Core.Intelligence.Topography.universal_view import UniversalView
-from Core.Foundation.Memory.unified_experience_core import get_experience_core
+from elysia_core.Foundation.Elysia.elysia_core import ElysiaCore
+from elysia_core.Intelligence.Imagination.simulator import get_simulator
+from elysia_core.Intelligence.Topography.perspective_shifter import PerspectiveShifter
+from elysia_core.Intelligence.Topography.universal_view import UniversalView
+from elysia_core.Foundation.Memory.unified_experience_core import get_experience_core
 
 # Configure logging to be quiet so we can focus on the narrative
 logging.basicConfig(level=logging.WARNING)

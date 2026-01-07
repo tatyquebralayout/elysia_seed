@@ -10,8 +10,8 @@
 
 ```bash
 # 저장소 클론
-git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git
-cd elysia-fractal-engine_V1
+git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git elysia_seed
+cd elysia_seed
 
 # (선택) 가상환경 설정
 python -m venv venv
@@ -40,6 +40,7 @@ print(f"감정: {result.emotion}")
 ```
 
 **출력 예시:**
+
 ```
 분위기: contemplative
 감정: {'dominant': 'Neutral', 'valence': 0.0, ...}
@@ -82,7 +83,8 @@ print(related)  # {'에너지': 1.0, '생산성': 1.0}
 
 삼위일체(Body/Soul/Spirit) 균형을 조절해 성격을 변화시킵니다.
 
-**중요**: 
+**중요**:
+
 - delta 값은 `-1.0` ~ `+1.0` 범위 권장
 - 양수: 해당 축 증가, 음수: 해당 축 감소
 - 모든 변화 후 자동으로 정규화되어 합이 1.0이 됨
@@ -216,6 +218,7 @@ print(f"관련 개념: {related}")
 ### 성격 설정 가이드
 
 **사용 방법**:
+
 - delta 값은 `-1.0` ~ `+1.0` 범위 권장
 - 양수: 해당 축 증가, 음수: 해당 축 감소
 - 초기값: body=0.33, soul=0.34, spirit=0.33 (대략 균등)
@@ -245,17 +248,20 @@ print(f"관련 개념: {related}")
 ## 🌟 다음 단계
 
 1. **예제 실행하기**
+
    ```bash
    python examples/00_hello_elysia.py
    python examples/easy_integration_guide.py
    ```
 
 2. **테스트 실행하기**
+
    ```bash
    python -m pytest tests/ -v
    ```
 
 3. **자신만의 프로젝트에 통합하기**
+
    ```python
    # 프로젝트에서 간단히 import
    from elysia_core import quick_consciousness_setup

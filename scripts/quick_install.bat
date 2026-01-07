@@ -23,21 +23,20 @@ echo.
 
 REM Clone repository
 echo Cloning Elysia Engine repository...
-if exist "elysia-fractal-engine_V1" (
-    echo Directory 'elysia-fractal-engine_V1' already exists
-    set /p REMOVE="Remove and re-clone? (y/n): "
-    if /i "%REMOVE%"=="y" (
-        rmdir /s /q elysia-fractal-engine_V1
+if exist "elysia_seed" (
+    echo Directory 'elysia_seed' already exists
+    set /p del_confirm="Do you want to delete it and reinstall? (y/n): "
+    if /i "%del_confirm%"=="y" (
+        rmdir /s /q elysia_seed
     ) else (
-        echo Installation cancelled
-        pause
+        echo Aborting.
         exit /b 1
     )
 )
 
-git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git
-cd elysia-fractal-engine_V1
-echo Repository cloned successfully
+echo ⬇️  Cloning Elysia Seed...
+git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git elysia_seed
+cd elysia_seed
 echo.
 
 REM Optional: Install development dependencies

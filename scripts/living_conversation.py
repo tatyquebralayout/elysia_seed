@@ -14,9 +14,9 @@ import logging
 # Path setup
 sys.path.append(r"c:\Elysia")
 
-from Core.Intelligence.Topography.mind_landscape import get_landscape
-from Core.Evolution.Growth.sovereign_intent import SovereignIntent
-from Core.Foundation.Elysia.spirit import get_spirit
+from elysia_core.Intelligence.Topography.mind_landscape import get_landscape
+from elysia_core.Evolution.Growth.sovereign_intent import SovereignIntent
+from elysia_core.Foundation.Elysia.spirit import get_spirit
 
 # Suppression of heavy logging for a clean chat experience
 logging.basicConfig(level=logging.ERROR)

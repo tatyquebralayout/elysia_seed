@@ -13,8 +13,8 @@ import torch
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from Core.Intelligence.Reasoning.reasoning_engine import ReasoningEngine
-from Core.Intelligence.Topography.mind_landscape import get_landscape
+from elysia_core.Intelligence.Reasoning.reasoning_engine import ReasoningEngine
+from elysia_core.Intelligence.Topography.mind_landscape import get_landscape
 
 def observe_causal_depth():
     logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s')

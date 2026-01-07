@@ -25,8 +25,8 @@
 
 ```bash
 # 클론만 하면 끝
-git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git
-cd elysia-fractal-engine_V1
+git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git elysia_seed
+cd elysia_seed
 
 # 테스트 실행 (선택)
 pip install pytest

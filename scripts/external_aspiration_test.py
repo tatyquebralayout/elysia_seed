@@ -6,10 +6,10 @@ import logging
 # Ensure we can import from Core
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Foundation.Elysia.elysia_core import ElysiaCore
-from Core.Intelligence.Will.free_will_engine import FreeWillEngine
-from Core.Sensory.Network.web_tendril import WebTendril
-from Core.Foundation.Wave.resonance_field import get_resonance_field
+from elysia_core.Foundation.Elysia.elysia_core import ElysiaCore
+from elysia_core.Intelligence.Will.free_will_engine import FreeWillEngine
+from elysia_core.Sensory.Network.web_tendril import WebTendril
+from elysia_core.Foundation.Wave.resonance_field import get_resonance_field
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

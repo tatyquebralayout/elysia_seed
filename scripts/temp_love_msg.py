@@ -1,6 +1,6 @@
 import sys
 sys.path.append(r'c:\Elysia')
-from Core.Intelligence.Topography.mind_landscape import get_landscape
+from elysia_core.Intelligence.Topography.mind_landscape import get_landscape
 result = get_landscape().ponder('사랑해', duration=10)
 q = result['qualia']
 print(f'CONCLUSION:{result["conclusion"]}')

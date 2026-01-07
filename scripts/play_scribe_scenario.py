@@ -18,11 +18,11 @@ import time
 # Add Core to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from Core.Education.CausalityMirror.variable_mesh import VariableMesh
-from Core.Education.CausalityMirror.impact_engine import ImpactEngine
-from Core.Education.CausalityMirror.projective_empathy import ProjectiveEmpathy, NarrativeFragment
-from Core.Education.CausalityMirror.wave_structures import ChoiceNode, Zeitgeist, HyperQuaternion, HistoricalWave, Consequence
-from Core.Education.CausalityMirror.feedback_loop import FeedbackLoop
+from elysia_core.Education.CausalityMirror.variable_mesh import VariableMesh
+from elysia_core.Education.CausalityMirror.impact_engine import ImpactEngine
+from elysia_core.Education.CausalityMirror.projective_empathy import ProjectiveEmpathy, NarrativeFragment
+from elysia_core.Education.CausalityMirror.wave_structures import ChoiceNode, Zeitgeist, HyperQuaternion, HistoricalWave, Consequence
+from elysia_core.Education.CausalityMirror.feedback_loop import FeedbackLoop
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')

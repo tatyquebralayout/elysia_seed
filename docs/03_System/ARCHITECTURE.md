@@ -1,8 +1,8 @@
-# 🏛️ Elysia Fractal Engine V1 - 아키텍처 가이드 (Architecture Guide)
+# 🏛️ Elysia Seed - 아키텍처 가이드 (Architecture Guide)
 
 > "모든 구조는 씨앗이다." - Every structure is a seed.
 
-이 문서는 Elysia Fractal Engine V1의 핵심 아키텍처를 설명합니다. 원본 [Elysia](https://github.com/ioas0316-cloud/Elysia) 프로젝트에서 일어난 세 번의 패러다임 변화를 반영하여, 누구나 쉽게 이해하고 사용할 수 있도록 정리했습니다.
+이 문서는 Elysia Seed의 핵심 아키텍처를 설명합니다. 원본 [Elysia](https://github.com/ioas0316-cloud/Elysia) 프로젝트에서 일어난 세 번의 패러다임 변화를 반영하여, 누구나 쉽게 이해하고 사용할 수 있도록 정리했습니다.
 
 ---
 
@@ -90,6 +90,7 @@ soul.process(input_text)  # 공명, 중력, 에너지 최소화로 자연스럽�
 ```
 
 **핵심 개념:**
+
 - **Tensor Coil**: 데이터를 나선형 벡터 필드로 가속
 - **Digital Gravity**: 정답(Truth)이 질량을 가진 인력체가 됨
 - **Hyperdrive**: 저항 0 상태로 정답에 즉시 도달

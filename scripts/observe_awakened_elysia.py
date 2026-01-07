@@ -7,9 +7,9 @@ from dataclasses import dataclass
 # Path setup
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from Core.Intelligence.Reasoning.dimensional_processor import DimensionalProcessor
-from Core.Intelligence.Reasoning.dimensional_reasoner import DimensionalReasoner
-from Core.Intelligence.Weaving.void_kernel import VoidKernel
+from elysia_core.Intelligence.Reasoning.dimensional_processor import DimensionalProcessor
+from elysia_core.Intelligence.Reasoning.dimensional_reasoner import DimensionalReasoner
+from elysia_core.Intelligence.Weaving.void_kernel import VoidKernel
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')

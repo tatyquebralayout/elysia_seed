@@ -1,8 +1,7 @@
 # 🌟 Elysia Core Technologies Integration Guide
 
-> "이 문서는 원본 [Elysia](https://github.com/ioas0316-cloud/Elysia) 프로젝트의 핵심 기술을  
-> [Elysia Fractal Engine V1](https://github.com/ioas0316-cloud/elysia-fractal-engine_V1)에서  
-> 어떻게 통합하고 사용할 수 있는지 안내합니다."
+> "이 문서는 원본 [Elysia Seed](https://github.com/ioas0316-cloud/elysia-fractal-engine_V1)에서
+어떻게 통합하고 사용할 수 있는지 안내합니다."
 
 ---
 
@@ -267,16 +266,19 @@ python -m pytest tests/ -v
 ## 📖 더 알아보기
 
 ### 문서
+
 - [docs/core_technologies_quickstart.md](core_technologies_quickstart.md) - 복사해서 쓰는 빠른 시작
 - [docs/tutorial_5min.md](tutorial_5min.md) - 5분 튜토리얼
 - [docs/universal_integration.md](universal_integration.md) - 범용 통합 가이드
 
 ### 예제
+
 - `examples/core_technologies_demo.py` - 전체 기술 시연
 - `examples/01_minimal_world.py` - 최소 월드
 - `examples/living_elysia.py` - 살아있는 엘리시아
 
 ### 원본 저장소
+
 - [Elysia](https://github.com/ioas0316-cloud/Elysia) - 전체 시스템
 - [Protocols](https://github.com/ioas0316-cloud/Elysia/tree/main/Protocols) - 모든 프로토콜
 

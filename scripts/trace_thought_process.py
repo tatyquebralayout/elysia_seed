@@ -20,10 +20,10 @@ from dataclasses import asdict
 
 sys.path.insert(0, r"c:\Elysia")
 
-from Core.Foundation.unified_field import UnifiedField, HyperQuaternion
-from Core.Education.CausalityMirror.projective_empathy import ProjectiveEmpathy, NarrativeFragment
-from Core.Education.CausalityMirror.wave_structures import ChoiceNode, Zeitgeist
-from Core.Intelligence.Meta.global_observer import GlobalObserver
+from elysia_core.Foundation.unified_field import UnifiedField, HyperQuaternion
+from elysia_core.Education.CausalityMirror.projective_empathy import ProjectiveEmpathy, NarrativeFragment
+from elysia_core.Education.CausalityMirror.wave_structures import ChoiceNode, Zeitgeist
+from elysia_core.Intelligence.Meta.global_observer import GlobalObserver
 
 # Setup Custom Logger
 logging.basicConfig(level=logging.INFO, format='%(message)s')

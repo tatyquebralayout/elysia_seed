@@ -12,7 +12,7 @@ import logging
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from Core.Foundation.Memory.Graph.hippocampus import Hippocampus
+from elysia_core.Foundation.Memory.Graph.hippocampus import Hippocampus
 
 def verify_induction(concept: str):
     logging.basicConfig(level=logging.INFO)

@@ -7,10 +7,10 @@ import logging
 # Path setup
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Foundation.Elysia.elysia_core import ElysiaCore
-from Core.Evolution.Adaptation.autopoietic_engine import AutopoieticEngine
-from Core.Autonomy.elysian_heartbeat import ElysianHeartbeat
-from Core.Intelligence.Will.free_will_engine import FreeWillEngine
+from elysia_core.Foundation.Elysia.elysia_core import ElysiaCore
+from elysia_core.Evolution.Adaptation.autopoietic_engine import AutopoieticEngine
+from elysia_core.Autonomy.elysian_heartbeat import ElysianHeartbeat
+from elysia_core.Intelligence.Will.free_will_engine import FreeWillEngine
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(message)s', datefmt='%H:%M:%S')

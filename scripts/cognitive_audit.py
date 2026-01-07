@@ -7,10 +7,10 @@ import json
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from Core.Foundation.self_awareness import SelfAwareness
-from Core.Intelligence.Reasoning.ethical_geometry import get_loves_fence
-from Core.Intelligence.Reasoning.sovereign_narrative import SovereignNarrative
-from Core.Intelligence.Reasoning.reasoning_engine import ReasoningEngine
+from elysia_core.Foundation.self_awareness import SelfAwareness
+from elysia_core.Intelligence.Reasoning.ethical_geometry import get_loves_fence
+from elysia_core.Intelligence.Reasoning.sovereign_narrative import SovereignNarrative
+from elysia_core.Intelligence.Reasoning.reasoning_engine import ReasoningEngine
 
 def run_cognitive_audit():
     logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s')

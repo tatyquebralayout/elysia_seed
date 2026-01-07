@@ -7,12 +7,12 @@ import logging
 # Path setup
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Foundation.Elysia.spirit import get_spirit
-from Core.Intelligence.Will.free_will_engine import FreeWillEngine
-from Core.Evolution.Adaptation.autopoietic_engine import AutopoieticEngine
-from Core.Intelligence.Topography.perspective_shifter import PerspectiveShifter
-from Core.Intelligence.Topography.universal_view import UniversalView
-from Core.Education.CausalityMirror.variable_mesh import VariableMesh
+from elysia_core.Foundation.Elysia.spirit import get_spirit
+from elysia_core.Intelligence.Will.free_will_engine import FreeWillEngine
+from elysia_core.Evolution.Adaptation.autopoietic_engine import AutopoieticEngine
+from elysia_core.Intelligence.Topography.perspective_shifter import PerspectiveShifter
+from elysia_core.Intelligence.Topography.universal_view import UniversalView
+from elysia_core.Education.CausalityMirror.variable_mesh import VariableMesh
 
 # Configure logging
 logging.basicConfig(level=logging.WARNING)

@@ -35,6 +35,7 @@ class TraditionalNPC:
 ```
 
 **문제:**
+
 - 모든 상황을 미리 코딩해야 함
 - 같은 상황에 항상 같은 반응
 - 관계도나 기억이 없음
@@ -61,6 +62,7 @@ class ElysianNPC:
 ```
 
 **장점:**
+
 - NPC가 스스로 판단
 - 상황과 관계에 따라 다른 반응
 - 기억과 학습 기능
@@ -110,6 +112,7 @@ python my_first_npc.py
 ```
 
 **출력 예시:**
+
 ```
 NPC의 기분: contemplative
 NPC의 감정: Neutral
@@ -146,18 +149,22 @@ bard = GameCharacterTemplate("음유시인", "bard")     # 외교적
 ```
 
 **Body (육체)**: 생존, 전투, 행동
+
 - 높으면: 공격적, 직접적, 용감
 - 낮으면: 회피적, 신중함, 방어적
 
 **Soul (영혼)**: 감정, 관계, 공감
+
 - 높으면: 외교적, 감성적, 협력적
 - 낮으면: 냉정함, 독립적, 실용적
 
 **Spirit (정신)**: 신념, 의미, 초월
+
 - 높으면: 희생적, 이상주의, 명상적
 - 낮으면: 현실적, 실리적, 세속적
 
 **실전 활용:**
+
 ```python
 # 전사 - Body 중심
 warrior_reaction = warrior.react_to_event("적 발견")
@@ -506,17 +513,20 @@ python examples/game_developer_examples.py
 ## 📚 참고 자료
 
 ### 필수 문서
+
 - **[GAME_DEVELOPER_GUIDE.md](GAME_DEVELOPER_GUIDE.md)**: 완전한 통합 가이드
 - **[GAME_DEV_QUICK_REF.md](GAME_DEV_QUICK_REF.md)**: 빠른 참조 카드
 - **[ARCHITECTURE_VISUAL.md](ARCHITECTURE_VISUAL.md)**: 구조 다이어그램
 
 ### 예제 코드
+
 - **[examples/00_hello_elysia.py](../examples/00_hello_elysia.py)**: 가장 간단한 예제
 - **[examples/game_developer_examples.py](../examples/game_developer_examples.py)**: 실전 예제 모음
 - **[examples/integration_example.py](../examples/integration_example.py)**: API 통합 예제
 
 ### 커뮤니티
-- **GitHub**: https://github.com/ioas0316-cloud/elysia-fractal-engine_V1
+
+- **GitHub**: <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1>
 - **Issues**: 질문이나 버그 리포트
 - **Discussions**: 경험 공유
 
@@ -549,16 +559,17 @@ A: 역할을 다르게 설정하거나 `update_personality()`로 삼위일체 �
 **Q: 성능이 느려요**
 A: 캐싱, 업데이트 빈도 조절, 가까운 NPC만 처리 등을 시도하세요.
 
-**Q: Unity/Godot 통합이 어려워요**
-A: REST API 방식부터 시작하세요. 가장 쉽습니다.
+**Q:git clone <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git> elysia_seed
+cd elysia_seed
 
-**Q: 더 복잡한 AI를 만들고 싶어요**
-A: 여러 NPC를 조합하거나, 공명 엔진과 기억 시스템을 직접 사용하세요.
+...
 
-### 연락처
+- **GitHub**: <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1>
 
-- **Issues**: https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/issues
-- **Discussions**: https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/discussions
+...
+
+- **Issues**: <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/issues>
+- **Discussions**: <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/discussions>
 
 ---
 

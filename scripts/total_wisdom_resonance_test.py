@@ -16,9 +16,9 @@ import time
 # Ensure we can import from Core
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Intelligence.Knowledge.Domains.history import HistoryDomain
-from Core.Orchestra.conductor import get_conductor, Mode, Tempo
-from Core.Foundation.Wave.resonance_field import get_resonance_field
+from elysia_core.Intelligence.Knowledge.Domains.history import HistoryDomain
+from elysia_core.Orchestra.conductor import get_conductor, Mode, Tempo
+from elysia_core.Foundation.Wave.resonance_field import get_resonance_field
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

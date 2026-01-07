@@ -17,9 +17,9 @@ from pathlib import Path
 # Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from Core.Intelligence.Topography.semantic_map import get_semantic_map
-from Core.Intelligence.Topography.geometric_weaver import GeometricWeaver
-from Core.Intelligence.Logos.logos_engine import get_logos_engine
+from elysia_core.Intelligence.Topography.semantic_map import get_semantic_map
+from elysia_core.Intelligence.Topography.geometric_weaver import GeometricWeaver
+from elysia_core.Intelligence.Logos.logos_engine import get_logos_engine
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(name)s: %(message)s')

@@ -1,4 +1,5 @@
 # 🎯 게임 개발자를 위한 완벽 가이드 인덱스
+
 # Complete Guide Index for Game Developers
 
 > 어디서부터 시작해야 할지 막막하신가요? 이 문서가 안내해 드립니다!  
@@ -13,13 +14,15 @@
 **목표**: Elysia가 무엇인지 이해하고 첫 예제 실행하기
 
 📖 **읽을 문서**:
+
 - [README.md](../README.md) - 프로젝트 소개
 - [PHILOSOPHY.md](../PHILOSOPHY.md) - 왜 Elysia인가?
 
 💻 **실행할 예제**:
+
 ```bash
-git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git
-cd elysia-fractal-engine_V1
+git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git elysia_seed
+cd elysia_seed
 python examples/00_hello_elysia.py
 ```
 
@@ -30,16 +33,19 @@ python examples/00_hello_elysia.py
 **목표**: 삼위일체, 공명, 기억 시스템 이해하기
 
 📖 **읽을 문서**:
+
 - [GAME_DEV_TUTORIAL_KO.md](GAME_DEV_TUTORIAL_KO.md) - 한국어 튜토리얼 ⭐
 - [ARCHITECTURE_VISUAL.md](ARCHITECTURE_VISUAL.md) - 구조 다이어그램
 
 💻 **실행할 예제**:
+
 ```bash
 python examples/02_warrior_mage_priest.py
 python examples/game_developer_examples.py
 ```
 
 ✅ **체크포인트**:
+
 - [ ] 삼위일체(Body/Soul/Spirit)가 무엇인지 이해했다
 - [ ] NPC 역할별 특성 차이를 안다
 - [ ] 기억 시스템의 작동 방식을 안다
@@ -51,10 +57,12 @@ python examples/game_developer_examples.py
 **목표**: 자신의 게임에 적용할 수 있는 NPC 만들기
 
 📖 **읽을 문서**:
+
 - [GAME_DEV_QUICK_REF.md](GAME_DEV_QUICK_REF.md) - 빠른 참조 카드 ⭐
 - [API_REFERENCE.md](API_REFERENCE.md) - API 문서
 
 💻 **실습 과제**:
+
 1. 대화 NPC 만들기 (우호도 시스템 포함)
 2. 전투 동료 AI 만들기
 3. 퀘스트 제공 NPC 만들기
@@ -68,12 +76,14 @@ python examples/game_developer_examples.py
 **목표**: Unity, Godot, 또는 Python 게임 엔진에 통합하기
 
 📖 **읽을 문서**:
+
 - [GAME_DEVELOPER_GUIDE.md](GAME_DEVELOPER_GUIDE.md) - 완벽한 통합 가이드 ⭐
   - Unity 통합 (Python.NET / REST API)
   - Godot 통합 (GDScript / HTTP)
   - Pygame 통합 (직접 임포트)
 
 💡 **권장 통합 방식**:
+
 - **Unity**: REST API 서버 (간단함) → Python.NET (고급)
 - **Godot**: HTTP 클라이언트 (간단함) → Python 모듈 (고급)
 - **Pygame**: 직접 임포트 (가장 쉬움)
@@ -85,10 +95,12 @@ python examples/game_developer_examples.py
 **목표**: 실시간 게임에서 성능 최적화하기
 
 📖 **읽을 문서**:
+
 - [GAME_DEVELOPER_GUIDE.md#성능-최적화](GAME_DEVELOPER_GUIDE.md#성능-최적화)
 - [ARCHITECTURE_VISUAL.md#성능-특성](ARCHITECTURE_VISUAL.md#성능-특성)
 
 ✅ **최적화 체크리스트**:
+
 - [ ] 캐싱 사용
 - [ ] 업데이트 빈도 조절
 - [ ] 가시거리 내 NPC만 처리
@@ -151,6 +163,7 @@ python examples/game_developer_examples.py
 ```
 
 **포함된 클래스**:
+
 - `DynamicDialogueNPC`: 우호도 기반 대화
 - `CombatCompanionAI`: 전투 동료 AI
 - `AdaptiveEnemyAI`: 적응형 적 AI
@@ -165,6 +178,7 @@ python examples/game_developer_examples.py
 **목표**: 플레이어와 대화하고 관계를 형성하는 NPC
 
 **필요한 문서**:
+
 1. [GAME_DEV_TUTORIAL_KO.md#예제-1-관계도-기반-대화-npc](GAME_DEV_TUTORIAL_KO.md#예제-1-관계도-기반-대화-npc)
 2. [GAME_DEV_QUICK_REF.md#패턴-1-대화-시스템](GAME_DEV_QUICK_REF.md#패턴-1-대화-시스템)
 
@@ -177,6 +191,7 @@ python examples/game_developer_examples.py
 **목표**: 상황에 맞게 전투 행동을 결정하는 AI
 
 **필요한 문서**:
+
 1. [GAME_DEV_TUTORIAL_KO.md#예제-2-전투-동료-ai](GAME_DEV_TUTORIAL_KO.md#예제-2-전투-동료-ai)
 2. [GAME_DEV_QUICK_REF.md#패턴-2-동료-ai](GAME_DEV_QUICK_REF.md#패턴-2-동료-ai)
 
@@ -189,6 +204,7 @@ python examples/game_developer_examples.py
 **목표**: 플레이어 실력에 맞춰 난이도를 조절하는 적
 
 **필요한 문서**:
+
 1. [GAME_DEVELOPER_GUIDE.md#예제-3-적응형-난이도-시스템](GAME_DEVELOPER_GUIDE.md#예제-3-적응형-난이도-시스템)
 2. [GAME_DEV_QUICK_REF.md#패턴-3-적-ai-난이도-조절](GAME_DEV_QUICK_REF.md#패턴-3-적-ai-난이도-조절)
 
@@ -201,6 +217,7 @@ python examples/game_developer_examples.py
 **목표**: Unity 프로젝트에 Elysia 통합
 
 **필요한 문서**:
+
 1. [GAME_DEVELOPER_GUIDE.md#unity-통합](GAME_DEVELOPER_GUIDE.md#unity-통합)
 2. [GAME_DEV_QUICK_REF.md#unity-c-템플릿](GAME_DEV_QUICK_REF.md#unity-c-템플릿)
 
@@ -213,6 +230,7 @@ python examples/game_developer_examples.py
 **목표**: Godot 프로젝트에 Elysia 통합
 
 **필요한 문서**:
+
 1. [GAME_DEVELOPER_GUIDE.md#godot-통합](GAME_DEVELOPER_GUIDE.md#godot-통합)
 2. [GAME_DEV_QUICK_REF.md#godot-gdscript-템플릿](GAME_DEV_QUICK_REF.md#godot-gdscript-템플릿)
 
@@ -337,6 +355,7 @@ python examples/game_developer_examples.py
 ### 질문하는 방법
 
 **좋은 질문**:
+
 ```
 제목: Unity 통합 시 ImportError 발생
 내용:
@@ -347,6 +366,7 @@ python examples/game_developer_examples.py
 ```
 
 **나쁜 질문**:
+
 ```
 안 돼요. 도와주세요.
 ```
@@ -363,20 +383,23 @@ python examples/game_developer_examples.py
 
 ### "단 3시간 만에 통합했습니다!"
 
-> "GAME_DEV_TUTORIAL_KO.md를 따라하니 정말 쉬웠어요. 
+> "GAME_DEV_TUTORIAL_KO.md를 따라하니 정말 쉬웠어요.
 > 제 RPG의 NPC들이 이제 살아있는 것 같습니다!"
+>
 > - 인디 게임 개발자
 
 ### "성능도 훌륭합니다"
 
-> "100명의 NPC를 동시에 처리하는데도 60 FPS를 유지합니다. 
+> "100명의 NPC를 동시에 처리하는데도 60 FPS를 유지합니다.
 > 캐싱과 최적화 가이드가 정말 도움됐어요."
+>
 > - Unity 개발자
 
 ### "문서가 최고예요"
 
-> "이렇게 친절한 문서는 처음입니다. 
+> "이렇게 친절한 문서는 처음입니다.
 > 한국어 튜토리얼이 있어서 더 좋았어요."
+>
 > - 게임 개발 초보자
 
 ---
@@ -398,6 +421,7 @@ python examples/game_developer_examples.py
 축하합니다! 이제 Elysia Engine으로 살아있는 NPC를 만들 준비가 되었습니다.
 
 **기억하세요**:
+
 - 📖 문서는 친구입니다 (특히 GAME_DEV_TUTORIAL_KO.md)
 - 💻 예제를 수정하며 배우세요
 - 🤝 커뮤니티를 활용하세요

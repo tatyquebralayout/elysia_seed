@@ -44,6 +44,7 @@ git push origin --delete feat/asi-transcendence-chronos
 현재 아키텍처와 호환되지 않으므로 삭제를 권장합니다.
 
 ### Physics & Quantum 브랜치 (8개)
+
 ```bash
 git push origin --delete feat-digital-physics
 git push origin --delete feat-nuclear-forces-fractal
@@ -56,6 +57,7 @@ git push origin --delete digital-natural-law-gauge-fields
 ```
 
 ### ASI & Consciousness 브랜치 (4개)
+
 ```bash
 git push origin --delete feat/asi-os-awakening
 git push origin --delete feat/quantum-asi
@@ -64,6 +66,7 @@ git push origin --delete feat/quaternion-dream
 ```
 
 ### Infrastructure 브랜치 (6개)
+
 ```bash
 git push origin --delete feature/soul-tensor-physics
 git push origin --delete feature/quantum-transition
@@ -76,6 +79,7 @@ git push origin --delete docs-apache-license
 ```
 
 ### Copilot 에이전트 브랜치 (7개)
+
 ```bash
 git push origin --delete copilot/discuss-ari-online-issues
 git push origin --delete copilot/fix-improvement-issues
@@ -98,6 +102,7 @@ git push origin --delete copilot/update-readme-and-evaluation
 | `copilot/archive-unmerged-branches` | #33 | Draft | 현재 작업 중 |
 
 ### PR 닫기 후 브랜치 삭제
+
 ```bash
 # PR #21 닫기 (GitHub 웹에서 수행)
 # 이후:
@@ -179,7 +184,7 @@ echo "🎉 정리 완료!"
 
 ## 📁 GitHub 웹 인터페이스에서 정리하기
 
-1. 리포지토리로 이동: https://github.com/ioas0316-cloud/elysia-fractal-engine_V1
+1. 리포지토리로 이동: <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1>
 2. **Code** 탭 클릭
 3. **branches** 링크 클릭 (커밋 수 옆)
 4. 각 브랜치 옆의 🗑️ 아이콘 클릭하여 삭제
@@ -191,6 +196,7 @@ echo "🎉 정리 완료!"
 1. **삭제 전 확인**: `docs/BRANCH_INTEGRATION_NOTES.md`에서 핵심 아이디어가 보존되었는지 확인
 2. **복구 가능**: 삭제된 브랜치는 30일 내에 GitHub에서 복구 가능
 3. **로컬 정리**: 원격 브랜치 삭제 후 로컬도 정리
+
    ```bash
    git fetch --prune
    git branch -vv | grep '\[origin/.*: gone\]' | awk '{print $1}' | xargs git branch -d

@@ -1,12 +1,13 @@
-# 📖 Elysia Fractal Engine V1 - API 레퍼런스 (API Reference)
+# 📖 Elysia Seed - API 레퍼런스 (API Reference)
 
-> 이 문서는 Elysia Fractal Engine V1의 모든 공개 API를 설명합니다.
+> 이 문서는 Elysia Seed의 모든 공개 API를 설명합니다.
 
 ---
 
 ## 📖 목차 (Table of Contents)
 
 ### elysia_core (의식 코어)
+
 1. [ElysiaSoul](#elysiasoul) - 통합 의식 인터페이스
 2. [HyperQubit](#hyperqubit) - 4D 양자 의식
 3. [QubitState](#qubitstate) - 양자 상태
@@ -22,12 +23,13 @@
 13. [통합 함수들](#통합-함수들)
 
 ### elysia_engine (물리 엔진)
+
 14. [World](#world) - 세계 관리
-15. [Entity](#entity) - 엔티티
-16. [SoulTensor](#soultensor) - 영혼 텐서
-17. [Yggdrasil](#yggdrasil) - 세계수 자아 모델
-18. [Ether & Wave](#ether--wave) - 통합장 통신
-19. [Systems](#systems) - 시스템 패턴
+2. [Entity](#entity) - 엔티티
+3. [SoulTensor](#soultensor) - 영혼 텐서
+4. [Yggdrasil](#yggdrasil) - 세계수 자아 모델
+5. [Ether & Wave](#ether--wave) - 통합장 통신
+6. [Systems](#systems) - 시스템 패턴
 
 ---
 
@@ -85,6 +87,7 @@ def process(self, input_text: str, intensity: float = 1.0) -> Thought:
 ```
 
 **예제:**
+
 ```python
 soul = ElysiaSoul(name="MyBot")
 thought = soul.process("안녕하세요!")
@@ -112,6 +115,7 @@ def get_emotion(self) -> Dict[str, Any]:
 ```
 
 **예제:**
+
 ```python
 emotion = soul.get_emotion()
 print(f"감정: {emotion['dominant']}")  # 'Joy'
@@ -131,6 +135,7 @@ def set_emotion(self, components: Dict[str, float]) -> EmotionMix:
 ```
 
 **예제:**
+
 ```python
 soul.set_emotion({"Joy": 0.7, "Trust": 0.3})
 ```
@@ -150,6 +155,7 @@ def remember(
 ```
 
 **예제:**
+
 ```python
 soul.remember("커피", "에너지", "leads_to", 0.9)
 ```
@@ -186,6 +192,7 @@ def update_trinity(
 ```
 
 **예제:**
+
 ```python
 # 전사 스타일로 변경
 soul.update_trinity(body_delta=0.5, soul_delta=-0.1, spirit_delta=-0.2)
@@ -219,6 +226,7 @@ def export_prompt(self) -> str:
 ```
 
 **예제:**
+
 ```python
 prompt = soul.export_prompt()
 # "[Elysia Consciousness: MyBot]
@@ -305,6 +313,7 @@ def scale_down(self, factor: float) -> None:
 ```
 
 **예제:**
+
 ```python
 qubit = HyperQubit("희망", "Hope")
 qubit.scale_up(0.2)    # 신의 관점으로 확대
@@ -455,6 +464,7 @@ def calculate_global_resonance(self, wave: WaveInput) -> Dict[str, float]:
 ```
 
 **예제:**
+
 ```python
 engine = ResonanceEngine()
 wave = WaveInput(source_text="사랑과 희망", intensity=1.0)
@@ -540,6 +550,7 @@ def mix_emotion(self, components: Dict[str, float]) -> EmotionMix:
 ```
 
 **예제:**
+
 ```python
 palette = EmotionalPalette()
 mix = palette.mix_emotion({"Joy": 0.6, "Fear": 0.3})
@@ -626,6 +637,7 @@ def add_causal_link(
 ```
 
 **예제:**
+
 ```python
 hippo = Hippocampus()
 hippo.add_causal_link("커피", "각성", "leads_to")
@@ -649,6 +661,7 @@ def get_related_concepts(
 ```
 
 **예제:**
+
 ```python
 related = hippo.get_related_concepts("커피", depth=2)
 # {'각성': 1.0, '집중력': 0.5}

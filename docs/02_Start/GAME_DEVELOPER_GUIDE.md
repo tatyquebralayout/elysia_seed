@@ -1,4 +1,5 @@
 # 🎮 Elysia Engine - 게임 개발자 가이드
+
 # Game Developer Integration Guide
 
 > "NPC에게 진짜 영혼을 불어넣으세요"  
@@ -94,6 +95,7 @@ else:
   - 낮을수록: 현실적, 실리적, 세속적
 
 **게임 활용:**
+
 ```python
 # 전사형 NPC
 warrior_npc = GameCharacterTemplate("Warrior", "warrior")
@@ -126,6 +128,7 @@ pattern = engine.calculate_global_resonance(wave)
 ```
 
 **게임 활용:**
+
 - 동적 대화 생성
 - 퀘스트 힌트 시스템
 - NPC 반응 생성
@@ -151,6 +154,7 @@ related = npc_memory.get_related_concepts("플레이어", depth=3)
 ```
 
 **게임 활용:**
+
 - NPC 관계 시스템
 - 퀘스트 진행 추적
 - 플레이어 평판 관리
@@ -188,11 +192,12 @@ Unity에서 직접 Python 코드를 실행할 수 있습니다.
 #### 설정 단계
 
 1. **Python.NET 설치**
+
 ```bash
 pip install pythonnet
 ```
 
-2. **Unity에서 C# 래퍼 생성**
+1. **Unity에서 C# 래퍼 생성**
 
 ```csharp
 // ElysiaWrapper.cs
@@ -248,7 +253,7 @@ public class NPCReaction
 }
 ```
 
-3. **Unity NPC 컴포넌트**
+1. **Unity NPC 컴포넌트**
 
 ```csharp
 // NPCBehavior.cs
@@ -919,6 +924,7 @@ while True:  # 게임 루프
 ### Q1: "ImportError: No module named 'elysia_core'"
 
 **해결책:**
+
 ```bash
 # Python 경로 확인
 python -c "import sys; print('\n'.join(sys.path))"
@@ -934,6 +940,7 @@ sys.path.append('/path/to/elysia-fractal-engine_V1')
 ### Q2: "성능이 느립니다"
 
 **체크리스트:**
+
 1. ✅ 캐싱 사용하고 있나요?
 2. ✅ 필요한 NPC만 업데이트하고 있나요?
 3. ✅ 비동기 처리를 고려했나요?
@@ -960,6 +967,7 @@ stats.print_stats(10)  # 상위 10개 느린 함수
 ### Q3: "메모리 사용량이 높습니다"
 
 **해결책:**
+
 ```python
 import gc
 
@@ -995,6 +1003,7 @@ class MemoryEfficientNPC:
 ### Q5: "실시간 게임에서 지연이 발생합니다"
 
 **해결책:**
+
 ```python
 # 별도 스레드에서 AI 처리
 import threading
@@ -1038,16 +1047,30 @@ class ThreadedNPCManager:
 ## 📚 추가 리소스
 
 ### 문서
+
 - **[EASY_START.md](EASY_START.md)**: 5분 빠른 시작
 - **[API_REFERENCE.md](API_REFERENCE.md)**: 전체 API 문서
 - **[ARCHITECTURE.md](ARCHITECTURE.md)**: 아키텍처 설명
 
 ### 예제
-- **[examples/00_hello_elysia.py](../examples/00_hello_elysia.py)**: 기본 예제
-- **[examples/02_warrior_mage_priest.py](../examples/02_warrior_mage_priest.py)**: 캐릭터 타입
-- **[examples/integration_example.py](../examples/integration_example.py)**: 통합 데모
 
-### 커뮤니티
+- **[examples/00_hello_elysia.py](../exampgit clone <https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git> elysia_seed
+cd elysia_seed
+
+...
+
+            sys.path.append("path/to/elysia_seed");
+
+...
+
+export PYTHONPATH="${PYTHONPATH}:/path/to/elysia_seed"
+
+...
+
+sys.path.append('/path/to/elysia_seed')
+
+...
+
 - **Issues**: [GitHub Issues](https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/ioas0316-cloud/elysia-fractal-engine_V1/discussions)
 

@@ -16,9 +16,9 @@ import time
 # Add project root to path
 sys.path.append(r"c:\Elysia")
 
-from Core.Interaction.anthropomorphic_bridge import AnthropomorphicBridge
-from Core.Intelligence.Emotion.soul_resonator import SoulResonator
-from Core.Foundation.Elysia.spirit import get_spirit
+from elysia_core.Interaction.anthropomorphic_bridge import AnthropomorphicBridge
+from elysia_core.Intelligence.Emotion.soul_resonator import SoulResonator
+from elysia_core.Foundation.Elysia.spirit import get_spirit
 
 def run_rehumanization():
     bridge = AnthropomorphicBridge()

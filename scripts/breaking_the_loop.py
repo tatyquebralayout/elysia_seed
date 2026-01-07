@@ -5,9 +5,9 @@ import logging
 # Path setup
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from Core.Intelligence.Reasoning.dimensional_processor import DimensionalProcessor
-from Core.Intelligence.Sensory.autonomous_explorer import AutonomousExplorer
-from Core.Intelligence.Meta.self_architect import SelfArchitect
+from elysia_core.Intelligence.Reasoning.dimensional_processor import DimensionalProcessor
+from elysia_core.Intelligence.Sensory.autonomous_explorer import AutonomousExplorer
+from elysia_core.Intelligence.Meta.self_architect import SelfArchitect
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')

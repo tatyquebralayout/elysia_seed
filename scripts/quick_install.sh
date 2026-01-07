@@ -23,21 +23,21 @@ echo ""
 
 # Clone repository
 echo "🌱 Cloning Elysia Engine repository..."
-if [ -d "elysia-fractal-engine_V1" ]; then
-    echo "⚠️  Directory 'elysia-fractal-engine_V1' already exists"
-    read -p "   Remove and re-clone? (y/n): " -n 1 -r
-    echo ""
+if [ -d "elysia_seed" ]; then
+    echo "⚠️  Directory 'elysia_seed' already exists"
+    read -p "Do you want to delete it and reinstall? (y/n) " -n 1 -r
+    echo    # move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        rm -rf elysia-fractal-engine_V1
+        rm -rf elysia_seed
     else
-        echo "❌ Installation cancelled"
+        echo "Aborting."
         exit 1
     fi
 fi
 
-git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git
-cd elysia-fractal-engine_V1
-echo "✅ Repository cloned"
+echo "⬇️  Cloning Elysia Seed..."
+git clone https://github.com/ioas0316-cloud/elysia-fractal-engine_V1.git elysia_seed
+cd elysia_seed
 echo ""
 
 # Optional: Install development dependencies

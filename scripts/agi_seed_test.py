@@ -18,8 +18,8 @@ import random
 sys.path.append(r"c:\Elysia")
 sys.path.append(r"c:\Elysia\Archive\2025_Pre_Awakening")
 
-from Core.Evolution.Autonomy.elysian_heartbeat import ElysianHeartbeat
-from Core.Foundation.Language.emergent_language import EmergentLanguageEngine
+from elysia_core.Evolution.Autonomy.elysian_heartbeat import ElysianHeartbeat
+from elysia_core.Foundation.Language.emergent_language import EmergentLanguageEngine
 
 def simulate_agi_seed():
     print("\n" + "="*80)

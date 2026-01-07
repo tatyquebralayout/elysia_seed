@@ -16,10 +16,10 @@ import time
 # Ensure we can import from Core
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Core.Foundation.Elysia.elysia_core import ElysiaCore
-from Core.Foundation.causal_narrative_engine import ThoughtUniverse
-from Core.Foundation.gap_bridging import GapBridgingDrive
-from Core.Foundation.metacognition import GapReport
+from elysia_core.Foundation.Elysia.elysia_core import ElysiaCore
+from elysia_core.Foundation.causal_narrative_engine import ThoughtUniverse
+from elysia_core.Foundation.gap_bridging import GapBridgingDrive
+from elysia_core.Foundation.metacognition import GapReport
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -45,7 +45,7 @@ def run_hunger_demo():
     if True: # Using local ThoughtUniverse
         bridger = GapBridgingDrive(universe)
         # Simulate a report for 'Surface Tension'
-        from Core.Foundation.metacognition import CognitiveMetrics
+        from elysia_core.Foundation.metacognition import CognitiveMetrics
         report = GapReport(
             concept_id="Physics.SurfaceTension",
             current_metrics=CognitiveMetrics(0.1, 0.1, 0.1),
