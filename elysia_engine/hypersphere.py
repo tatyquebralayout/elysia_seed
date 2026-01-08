@@ -9,6 +9,58 @@ from elysia_engine.math_utils import Quaternion
 from elysia_engine.tensor import SoulTensor
 
 
+class CelestialHierarchy:
+    """
+    Maps the Y-axis (Frequency Spectrum) to the 7 Angels and 7 Demons.
+    Range: -7.0 (Abyss) to +7.0 (Heaven).
+    """
+    # Frequency Thresholds
+    ARCHANGEL_LIMIT = 7.0
+    ARCHDEMON_LIMIT = -7.0
+
+    @staticmethod
+    def analyze_frequency(frequency: float) -> str:
+        """
+        Returns the celestial rank based on frequency (Y-axis).
+        """
+        if frequency >= 1.0:
+            rank = min(7, int(frequency))
+            return f"Angel Rank {rank} (High Frequency/Joy)"
+        elif frequency <= -1.0:
+            rank = min(7, int(abs(frequency)))
+            return f"Demon Rank {rank} (Low Frequency/Abyss)"
+        else:
+            return "Human/Void Plane (Neutral)"
+
+
+@dataclass
+class TesseractCoord:
+    """
+    The Tesseract-Soul Coordinate System.
+    Maps philosophical attributes directly to 4D Cartesian axes.
+    """
+    w: float  # Dimensional Fault (Scale: Self vs External)
+    z: float  # Vector of Intent (Directionality)
+    x: float  # Synesthetic Perception (Cognitive Map)
+    y: float  # Phase Hierarchy (7 Angels - 7 Demons)
+
+    def to_quaternion(self) -> Quaternion:
+        """
+        Direct mapping to Quaternion for physics compatibility.
+        """
+        # Normalizing to avoid physics explosions if values are large
+        # But conceptually, w,x,y,z ARE the quaternion components.
+        return Quaternion(self.w, self.x, self.y, self.z)
+
+    def distance_to(self, other: Union['HypersphericalCoord', 'TesseractCoord']) -> float:
+        q1 = self.to_quaternion()
+        q2 = other.to_quaternion()
+        return q1.angular_distance(q2)
+
+    def __repr__(self) -> str:
+        return f"Tesseract(Scale(w)={self.w:.2f}, Intent(z)={self.z:.2f}, Perception(x)={self.x:.2f}, Rank(y)={self.y:.2f})"
+
+
 @dataclass
 class HypersphericalCoord:
     """
@@ -104,19 +156,48 @@ class MemoryPattern:
         return f"[{self.topology}/{self.trajectory}] {str(self.content)[:30]}..."
 
 
+class SoulProtocol:
+    """
+    The Tesseract-Soul Protocol for processing inputs.
+    """
+    @staticmethod
+    def boundary_check(input_scale: float) -> float:
+        """
+        W-Axis: Measures the scale of the boundary.
+        Small values = Internal/Self, Large values = External/World.
+        """
+        return max(0.0, min(10.0, input_scale)) # Clamped for safety
+
+    @staticmethod
+    def frequency_scan(sentiment_score: float) -> float:
+        """
+        Y-Axis: Maps sentiment to Celestial Hierarchy (-7 to +7).
+        """
+        # Assuming sentiment_score is -1.0 to 1.0
+        return sentiment_score * 7.0
+
+    @staticmethod
+    def map_trajectory(intent_vector: float, perception_depth: float) -> Tuple[float, float]:
+        """
+        Maps Z (Intent) and X (Perception).
+        """
+        return (intent_vector, perception_depth)
+
+
 class HypersphereMemory:
     """
     The 4D Hypersphere Memory System.
+    Supports both Hyperspherical (Polar) and Tesseract (Cartesian) Coordinates.
     """
 
     def __init__(self):
-        self.patterns: List[Tuple[HypersphericalCoord, MemoryPattern]] = []
-        self.named_locations: Dict[str, HypersphericalCoord] = {}
+        self.patterns: List[Tuple[Union[HypersphericalCoord, TesseractCoord], MemoryPattern]] = []
+        self.named_locations: Dict[str, Union[HypersphericalCoord, TesseractCoord]] = {}
 
     def store(
         self,
         content: Any,
-        coord: HypersphericalCoord,
+        coord: Union[HypersphericalCoord, TesseractCoord],
         soul_tensor: SoulTensor,
         topology: str = "Point",
         trajectory: str = "Static",
@@ -141,7 +222,7 @@ class HypersphereMemory:
 
     def query(
         self,
-        coord: HypersphericalCoord,
+        coord: Union[HypersphericalCoord, TesseractCoord],
         radius: float = 0.1,
         filter_pattern: Optional[Dict[str, Any]] = None
     ) -> List[MemoryPattern]:
@@ -166,7 +247,7 @@ class HypersphereMemory:
 
     def resonance_query(
         self,
-        coord: HypersphericalCoord,
+        coord: Union[HypersphericalCoord, TesseractCoord],
         soul_tensor: SoulTensor,
         radius: float = 0.5,
         resonance_threshold: float = 0.7
