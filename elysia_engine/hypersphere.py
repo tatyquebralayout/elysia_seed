@@ -327,6 +327,43 @@ class HypersphereMemory:
                 results.append(pat)
         return results
 
+    def zoom_query(
+        self,
+        scale_center: float,
+        scale_width: float,
+        frequency_range: Optional[Tuple[float, float]] = None
+    ) -> List[MemoryPattern]:
+        """
+        [Analog Zoom Dial]
+        Queries memories based on W-Axis Scale (Depth of Field).
+
+        Args:
+            scale_center: The W-value to focus on.
+            scale_width: The bandwidth of the zoom (like aperture size).
+            frequency_range: Optional extra filter for Y-axis frequency.
+        """
+        results = []
+
+        min_w = scale_center - (scale_width / 2)
+        max_w = scale_center + (scale_width / 2)
+
+        for coord, pattern in self.patterns:
+            # Only applies to TesseractCoord which has explicit 'w'
+            if not isinstance(coord, TesseractCoord):
+                continue
+
+            # Scale Filter (Bandpass)
+            if min_w <= coord.w <= max_w:
+                # Frequency Filter (Optional)
+                if frequency_range:
+                    freq = pattern.soul_tensor.frequency
+                    if not (frequency_range[0] <= freq <= frequency_range[1]):
+                        continue
+
+                results.append(pattern)
+
+        return results
+
     def scan(
         self,
         frequency_range: Tuple[float, float],

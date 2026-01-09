@@ -237,11 +237,22 @@ class PhysicsWorld:
         # v' = R v R~
         # We apply this to the current velocity, not force.
         # But here we return Force/Flow vector.
-        # Let's add a "Coriolis" term from the Rotor.
 
-        # Tangential velocity induced by rotor?
-        # Simple approximation: Add a tangent vector.
-        # For now, we trust get_local_forces returns the linear force component.
+        # [Rotor Integration]
+        # Rotate the Soul's Orientation based on field torque.
+        # This re-aligns the "Intent Vector" dynamically.
+        if target_entity.soul and not target_entity.soul.is_collapsed:
+             # Apply slight rotation to the soul orientation
+             # We dampen the rotor effect to prevent chaos
+             dampened_rotor = Rotor(rotor.scalar, rotor.bivector_xy * 0.1, rotor.bivector_yz * 0.1, rotor.bivector_zx * 0.1)
+             # Note: Rotor application to Quaternion is complex.
+             # Simpler approach: Rotate the velocity vector (Coriolis Effect)
+
+             # Rotate the FORCE vector to simulate the spiral path
+             # F_spiral = R * F * R_conj
+             # Convert force to Vector4 for rotor operation (w=0)
+             force4_rotated = dampened_rotor.rotate(Vector4(0, force.x, force.y, force.z))
+             force = Vector3(force4_rotated.x, force4_rotated.y, force4_rotated.z)
 
         # Add Intent (Self-Propulsion)
         intent_force = Vector3(0,0,0)
