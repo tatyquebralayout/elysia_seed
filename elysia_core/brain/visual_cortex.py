@@ -27,17 +27,26 @@ class VisualCortex:
         self._synapse_strength = 1.0
         logger.info("👁️ Visual Cortex: Online")
 
-    def visualize(self, geometry_layout: Dict[str, Any], mood: str) -> Dict[str, Any]:
+    def visualize(self, geometry_layout: Dict[str, Any], soul_state: Any) -> Dict[str, Any]:
         """
         Projects an internal thought-form (Geometry) into a visual experience (Texture).
-        Formerly known as 'DreamWeaving' or 'StableDiffusion'.
+        Guided by the Soul's 4D State (HyperQuaternion).
         """
         if not self._is_active:
             return {"error": "Visual Cortex is dormant."}
 
+        # Decode Soul State
+        # w = Wisdom/Silence, z = Passion/Action
+        # In a real implementation, we map quaternion components to latent vectors.
+        energy = abs(soul_state.z)
+        clarity = abs(soul_state.w)
+        
+        mood = "Ethereal" if clarity > energy else "Volatile"
+        intensity = (energy + clarity) / 2.0
+
         # Internal process simulation (Neural Activity)
-        prompt = f"Scene with mood '{mood}' following layout structure."
-        logger.info(f"🧠 Visualizing: '{prompt}'...")
+        prompt = f"Scene with mood '{mood}' (Intensity: {intensity:.2f}) following layout structure."
+        logger.info(f"🧠 Visualizing via Soul State [w={soul_state.w:.2f}, z={soul_state.z:.2f}]: '{prompt}'...")
         time.sleep(0.5) # Synaptic delay
 
         # In a real biological system, this 'call' is internal to the organ.
@@ -46,5 +55,5 @@ class VisualCortex:
             "status": "success",
             "perception_path": "memory_001.png",
             "semantic_tags": ["visual_memory", mood, "structure_guided"],
-            "intensity": 0.85
+            "intensity": intensity
         }
